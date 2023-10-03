@@ -6,9 +6,9 @@ import {Chat} from "./components/chat/Chat";
 import io from 'socket.io-client';
 import {nanoid} from "nanoid";
 
-const {ENV, REACT_APP_SERVER_BASE_NAME} = process.env;
+const {NODE_ENV} = process.env;
 
-const connectBaseUrl = ENV === 'development' ? 'http://localhost:5000' : REACT_APP_SERVER_BASE_NAME;
+const connectBaseUrl = NODE_ENV === 'development' ? 'http://localhost:5000' : 'wss://ws-server-kyng.onrender.com';
 
 const socket = io.connect(connectBaseUrl);
 
